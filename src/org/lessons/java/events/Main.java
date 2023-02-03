@@ -39,8 +39,30 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Oggetto test evento: " + eventoTest.toString());
+		//System.out.println("Oggetto test evento: " + eventoTest.toString());
 		
+		int postiPrenotati = 0;
+		boolean farePrenotazione = true;
+		
+		while (farePrenotazione) {
+			try {
+				System.out.print("Vuoi prenotare dei posti? (s/n)");
+				farePrenotazione = inputContainer.nextLine().equals("s");
+				if (farePrenotazione) {
+					System.out.print("Quanti posti vuoi prenotare? ");
+					postiPrenotati = Integer.parseInt(inputContainer.nextLine());
+					if (postiPrenotati < 1 || postiPrenotati > eventoTest.getPostiTotali())
+						System.out.println("Numero non valido, intervallo accettato da 1 a " + eventoTest.getPostiTotali());
+					else
+						farePrenotazione = false;
+				}
+				
+			} catch (Exception error) {
+				System.out.println("Input non valido. Inserire solo un numero intero!");
+			}
+		}
+
+		System.out.println("Programma terminato!");
 		
 		inputContainer.close();
 		// Chiuso inputContainer
