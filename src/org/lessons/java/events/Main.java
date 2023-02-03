@@ -1,6 +1,8 @@
 package org.lessons.java.events;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Main {
@@ -112,6 +114,16 @@ public class Main {
 		System.out.println("Posti prenotati: " + eventoTest.getPostiPrenotati());
 		System.out.println("Posti disponibili: " + eventoTest.getPostiDisponibili());
 
+		LocalTime testOra = LocalTime.of(16, 19);
+		BigDecimal prezzo = new BigDecimal ("15.5784");
+		Concerto concertoTest = null;
+		try {
+			concertoTest = new Concerto("titoloTest", eventoTest.getData(), eventoTest.getPostiTotali(), testOra, prezzo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Oggetto test concerto: " + concertoTest.toString());
 		
 		System.out.println("Programma terminato!");
 		
