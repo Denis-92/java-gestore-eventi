@@ -65,7 +65,7 @@ public class Evento {
 	
 	public String getDataFormattata(LocalDate data) {
 		DateTimeFormatter formattaData = DateTimeFormatter.ofPattern("dd/MM/yyyy").withLocale(Locale.ITALY);
-		String dataFormattata = data.format(formattaData));
+		String dataFormattata = data.format(formattaData);
 		return dataFormattata;
 	}
 
