@@ -74,7 +74,45 @@ public class Main {
 		
 		System.out.println("Posti prenotati: " + eventoTest.getPostiPrenotati());
 		System.out.println("Posti disponibili: " + eventoTest.getPostiDisponibili());
+		
+		int postiRestituiti= 0;
+		boolean fareDisdetta = true;
+		
+		while (fareDisdetta) {
+			try {
+				System.out.print("Vuoi disdire dei posti? (s/n)");
+				fareDisdetta = inputContainer.nextLine().equals("s");
+				if (fareDisdetta) {
+					if (postiPrenotati < 1) {
+						System.out.println("Non ci sono posti prenotati, non è possibile effettuare una disdetta...");
+						fareDisdetta = false;
+					} else {
+						System.out.print("Quanti posti vuoi disdire? ");
+						postiRestituiti = Integer.parseInt(inputContainer.nextLine());
+						if (postiRestituiti < 1 || postiRestituiti > eventoTest.getPostiPrenotati())
+							System.out.println("Numero non valido, intervallo accettato da 1 a " + eventoTest.getPostiPrenotati());
+						else
+							fareDisdetta = false;
+					}
+				}
+				
+			} catch (Exception error) {
+				System.out.println("Input non valido. Inserire solo un numero intero!");
+			}
+		}
+		
+		for (int i=0; i < postiRestituiti; i++) {
+			try {
+				eventoTest.disdici(adesso);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println("Posti prenotati: " + eventoTest.getPostiPrenotati());
+		System.out.println("Posti disponibili: " + eventoTest.getPostiDisponibili());
 
+		
 		System.out.println("Programma terminato!");
 		
 		inputContainer.close();
