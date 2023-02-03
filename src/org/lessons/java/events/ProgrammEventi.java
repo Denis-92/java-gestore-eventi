@@ -27,5 +27,15 @@ public class ProgrammEventi {
 			}
 		return eventiodierni;
 	}
+	
+	public int getNumeroEventi() {
+		return eventi.size();
+	}
+	
+	public void deleteEventi() {
+		for (int i = 0; i < eventi.size(); i++) {
+			eventi.remove(i);
+		}
+	}
 
 }
