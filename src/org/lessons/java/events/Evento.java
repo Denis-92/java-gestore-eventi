@@ -44,7 +44,7 @@ public class Evento {
 	
 		// START - VALIDATIONS
 	public void validazioneData(LocalDate data) throws Exception {
-		if (dataAttuale.isBefore(data))
+		if (data.isBefore(dataAttuale))
 			throw new Exception();
 	}
 	
