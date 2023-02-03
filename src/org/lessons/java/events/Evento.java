@@ -76,6 +76,10 @@ public class Evento {
 	public int getPostiPrenotati() {
 		return postiPrenotati;
 	}
+	
+	public int getPostiDisponibili() {
+		return postiTotali - postiPrenotati;
+	}
 
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
@@ -86,7 +90,5 @@ public class Evento {
 		this.data = data;
 	}
 		// END - GETTERS SETTERS
-	
-	
-	
+
 }

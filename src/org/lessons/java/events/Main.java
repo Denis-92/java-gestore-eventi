@@ -61,6 +61,19 @@ public class Main {
 				System.out.println("Input non valido. Inserire solo un numero intero!");
 			}
 		}
+		
+		LocalDate adesso = LocalDate.now();
+		
+		for (int i=0; i < postiPrenotati; i++) {
+			try {
+				eventoTest.prenota(adesso);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println("Posti prenotati: " + eventoTest.getPostiPrenotati());
+		System.out.println("Posti disponibili: " + eventoTest.getPostiDisponibili());
 
 		System.out.println("Programma terminato!");
 		
